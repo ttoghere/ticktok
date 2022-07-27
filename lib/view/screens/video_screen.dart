@@ -47,7 +47,7 @@ class VideoScreen extends StatelessWidget {
       child: Column(
         children: [
           Container(
-              padding: EdgeInsets.all(11),
+              padding: const EdgeInsets.all(11),
               height: 50,
               width: 50,
               decoration: BoxDecoration(

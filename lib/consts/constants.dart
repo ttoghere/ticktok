@@ -11,8 +11,8 @@ import '../controllers/auth_controller.dart';
 List pages = [
   VideoScreen(),
   SearchScreen(),
-  AddVideoScreen(),
-  Text('Messages Screen'),
+  const AddVideoScreen(),
+  const Text('Messages Screen'),
   ProfileScreen(uid: authController.user!.uid),
 ];
 

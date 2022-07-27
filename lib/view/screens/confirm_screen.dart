@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ticktok/controllers/upload_video_controller.dart';
 import 'package:ticktok/view/screens/widgets/text_input_field.dart';
+import 'package:video_player/video_player.dart';
 
 class ConfirmScreen extends StatefulWidget {
   final File videoFile;
@@ -16,30 +19,30 @@ class ConfirmScreen extends StatefulWidget {
 }
 
 class _ConfirmScreenState extends State<ConfirmScreen> {
-  TextEditingController _songController = TextEditingController();
-  TextEditingController _captionController = TextEditingController();
-  // late VideoPlayerController controller;
+  final TextEditingController _songController = TextEditingController();
+  final TextEditingController _captionController = TextEditingController();
+  late VideoPlayerController controller;
 
-  // UploadVideoController uploadVideoController =
-  //     Get.put(UploadVideoController());
+  UploadVideoController uploadVideoController =
+      Get.put(UploadVideoController());
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   setState(() {
-  //     controller = VideoPlayerController.file(widget.videoFile);
-  //   });
-  //   controller.initialize();
-  //   controller.play();
-  //   controller.setVolume(1);
-  //   controller.setLooping(true);
-  // }
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      controller = VideoPlayerController.file(widget.videoFile);
+    });
+    controller.initialize();
+    controller.play();
+    controller.setVolume(1);
+    controller.setLooping(true);
+  }
 
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   controller.dispose();
-  // }
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,14 +50,14 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // const SizedBox(
-            //   height: 30,
-            // ),
-            // SizedBox(
-            //   width: MediaQuery.of(context).size.width,
-            //   height: MediaQuery.of(context).size.height / 1.5,
-            //   child: VideoPlayer(controller),
-            // ),
+            const SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 1.5,
+              child: VideoPlayer(controller),
+            ),
             const SizedBox(
               height: 30,
             ),
@@ -88,7 +91,10 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
                     height: 10,
                   ),
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => uploadVideoController.uploadVideo(
+                          _songController.text,
+                          _captionController.text,
+                          widget.videoPath),
                       child: const Text(
                         'Share!',
                         style: TextStyle(
