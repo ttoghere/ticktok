@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "581727821753",
+    "project_id": "ticktock-1",
+    "storage_bucket": "ticktock-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581727821753:android:d2b059d33839fc66ae6068",
+        "android_client_info": {
+          "package_name": "com.example.ticktok"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581727821753-btmkp3ofk9fi2o5e2leh4o0n68h5m25v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJkG4h7QPNGczmMpf3YdUsoZiz9bRMhi0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581727821753-btmkp3ofk9fi2o5e2leh4o0n68h5m25v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "581727821753-c9t8mpodno1l0a96vvf682dq3aem3dkd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ticktok"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
