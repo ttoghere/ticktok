@@ -54,7 +54,7 @@ class ProfileController extends GetxController {
         .collection('users')
         .doc(_uid.value)
         .collection('followers')
-        .doc(authController.user.uid)
+        .doc(authController.user!.uid)
         .get()
         .then((value) {
       if (value.exists) {
@@ -81,7 +81,7 @@ class ProfileController extends GetxController {
         .collection('users')
         .doc(_uid.value)
         .collection('followers')
-        .doc(authController.user.uid)
+        .doc(authController.user!.uid)
         .get();
 
     if (!doc.exists) {
@@ -89,11 +89,11 @@ class ProfileController extends GetxController {
           .collection('users')
           .doc(_uid.value)
           .collection('followers')
-          .doc(authController.user.uid)
+          .doc(authController.user!.uid)
           .set({});
       await firestore
           .collection('users')
-          .doc(authController.user.uid)
+          .doc(authController.user!.uid)
           .collection('following')
           .doc(_uid.value)
           .set({});
@@ -106,11 +106,11 @@ class ProfileController extends GetxController {
           .collection('users')
           .doc(_uid.value)
           .collection('followers')
-          .doc(authController.user.uid)
+          .doc(authController.user!.uid)
           .delete();
       await firestore
           .collection('users')
-          .doc(authController.user.uid)
+          .doc(authController.user!.uid)
           .collection('following')
           .doc(_uid.value)
           .delete();

@@ -13,7 +13,7 @@ List pages = [
   SearchScreen(),
   AddVideoScreen(),
   Text('Messages Screen'),
-  ProfileScreen(uid: authController.user.uid),
+  ProfileScreen(uid: authController.user!.uid),
 ];
 
 // COLORS
