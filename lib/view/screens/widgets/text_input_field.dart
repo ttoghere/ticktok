@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ticktok/consts/view/consts_shelf.dart';
+import 'package:ticktok/consts/consts_shelf.dart';
 
 class TextInputField extends StatelessWidget {
   final IconData iconData;

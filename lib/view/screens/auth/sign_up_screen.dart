@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ticktok/consts/view/consts_shelf.dart';
+import 'package:ticktok/consts/consts_shelf.dart';
+import 'package:ticktok/view/screens/auth/auth_shelf.dart';
 import 'package:ticktok/view/screens/widgets/text_input_field.dart';
+
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({Key? key}) : super(key: key);
@@ -12,6 +14,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         alignment: Alignment.center,
         child: Column(
@@ -47,10 +50,9 @@ class SignupScreen extends StatelessWidget {
                   bottom: -10,
                   left: 80,
                   child: IconButton(
-                    onPressed: () {},
-                    icon:  Icon(
+                    onPressed: () => authController.pickImage(),
+                    icon: const Icon(
                       Icons.add_a_photo,
-                      color: buttonColor,
                     ),
                   ),
                 ),
@@ -106,7 +108,12 @@ class SignupScreen extends StatelessWidget {
                 ),
               ),
               child: InkWell(
-                onTap: () {},
+                onTap: () => authController.registerUser(
+                  _usernameController.text,
+                  _emailController.text,
+                  _passwordController.text,
+                  authController.profilePhoto,
+                ),
                 child: const Center(
                   child: Text(
                     'Register',
@@ -131,7 +138,11 @@ class SignupScreen extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                  ),
                   child: Text(
                     'Login',
                     style: TextStyle(fontSize: 20, color: buttonColor),
