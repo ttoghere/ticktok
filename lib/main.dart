@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:ticktok/controllers/auth_controller.dart';
 import 'package:ticktok/firebase_options.dart';
 import 'package:ticktok/view/screens/auth/auth_shelf.dart';
-import 'consts/view/consts_shelf.dart';
+import 'consts/consts_shelf.dart';
 
 
 void main() async {
